@@ -1,18 +1,24 @@
+import sys
+
 from stats import get_num_words, get_char_count, sorted_char_count
 
 
 def get_book_text(file_path):
     """Take file path and return contents of file as string"""
-    try:
-        with open(file_path) as f:
-            file_contents = f.read()
-            return file_contents
-    except FileNotFoundError:
-        return f"ERROR: the file at {file_path} was not found"
+    with open(file_path) as f:
+        file_contents = f.read()
+        return file_contents
 
 
 def main():
-    file_path = "books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Error: Sorry please check the usage note below to avoid errors.")
+        print(
+            "Usage: Please add the relative path to the target file after the main.py argument"
+        )
+        print("Example: python3 main.py books/mybook.txt")
+        sys.exit(1)
+    file_path = sys.argv[1]
     text = get_book_text(file_path)
     num_words = get_num_words(text)
     num_chars = get_char_count(text)
