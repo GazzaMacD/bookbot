@@ -13,9 +13,7 @@ def get_book_text(file_path):
 def main():
     if len(sys.argv) < 2:
         print("Error: Sorry please check the usage note below to avoid errors.")
-        print(
-            "Usage: Please add the relative path to the target file after the main.py argument"
-        )
+        print("Usage: python3 main.py <path_to_book>")
         print("Example: python3 main.py books/mybook.txt")
         sys.exit(1)
     file_path = sys.argv[1]
