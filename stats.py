@@ -17,3 +17,14 @@ def get_char_count(text):
         else:
             count[char] = 1
     return count
+
+
+def sorted_char_count(char_count):
+    """Takes in a dictionary of chars as keys along with number of chars as values. Returns
+    a from max to min sorted list of dictionaries with the character and the count"""
+    sorted_char_counts = []
+    for k, v in char_count.items():
+        sorted_char_counts.append({"char": k, "num": v})
+
+    sorted_char_counts.sort(reverse=True, key=lambda d: d["num"])
+    return sorted_char_counts
